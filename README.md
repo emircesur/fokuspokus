@@ -49,7 +49,23 @@ Designed for Dyslexia, ADHD, Scotopic Sensitivity, and Visual Impairments.
 
 ## 🛠️ Installation & Usage
 
-**fokuspokus** is a Progressive Web App. You do not need an App Store.
+**fokuspokus** is a Progressive Web App. You do not need an App Store. 
+This app is configured for static export and works on GitHub Pages. DOWNLOAD ZIP FOR SERVER /NONSTATIC DEPLOYMENT.
+
+This app uses `output: 'export'` in `next.config.mjs` for static site generation. This means:
+- Works on any static host (GitHub Pages, Netlify, S3, etc.)
+- No server-side features (API routes removed)
+- EPUB parsing happens client-side using JSZip
+- URL extraction feature requires a server deployment (shows notice on static hosts)
+
+  The following were removed to support GitHub Pages:
+
+- `/app/api/parse-epub/route.ts` - Replaced with client-side `/lib/epub-parser.ts`
+- `/app/api/extract-text/route.ts` - URL extraction requires server (user sees notice)
+
+If you deploy to Vercel or another server-enabled platform, you can restore these for enhanced features.
+
+
 
 We welcome contributions, especially from developers with lived experience in neurodivergence.
 
