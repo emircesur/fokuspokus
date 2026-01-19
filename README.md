@@ -18,6 +18,7 @@ We prioritize **ADA (Americans with Disabilities Act)** compliance and **WCAG (W
 ---
 
 ## ⚡ Key Features
+Everything under settings icon. RSVP is under bionic and reading mode. 
 
 ### 👁️ Accessibility Suite
 
