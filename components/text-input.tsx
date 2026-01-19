@@ -14,8 +14,10 @@ import {
   Link, 
   ClipboardPaste, 
   Upload,
-  Loader2
+  Loader2,
+  AlertCircle
 } from 'lucide-react'
+import { parseEpub } from '@/lib/epub-parser'
 
 export function TextInput() {
   const { setContent, addToHistory } = useReading()
@@ -131,32 +133,17 @@ export function TextInput() {
       const extension = file.name.split('.').pop()?.toLowerCase()
       
       if (extension === 'epub') {
-        // Parse EPUB - show progress for large files
+        // Parse EPUB client-side
         setLoadingStatus(`Reading ${file.name}...`)
-        const arrayBuffer = await file.arrayBuffer()
         
         setLoadingStatus('Parsing EPUB structure...')
-        const response = await fetch('/api/parse-epub', {
-          method: 'POST',
-          body: arrayBuffer,
-          headers: {
-            'Content-Type': 'application/epub+zip',
-            'X-Filename': file.name,
-          },
-        })
-        
-        if (!response.ok) {
-          const errorData = await response.json().catch(() => ({}))
-          throw new Error(errorData.error || 'Failed to parse EPUB file')
-        }
-        
-        setLoadingStatus('Processing text content...')
-        const data = await response.json()
+        const data = await parseEpub(file)
         
         if (!data.content || data.content.trim().length === 0) {
           throw new Error('No readable content found in EPUB. The file may be DRM-protected or use an unsupported format.')
         }
         
+        setLoadingStatus('Processing text content...')
         const content = await createContent(
           data.content,
           data.title || file.name.replace('.epub', ''),
@@ -294,6 +281,12 @@ export function TextInput() {
             <p className="text-xs text-muted-foreground/60">
               Extracts readable content from articles and web pages
             </p>
+            <div className="flex items-start gap-2 p-3 bg-muted/50 text-xs text-muted-foreground">
+              <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
+              <span>
+                URL extraction requires a server. On static hosts (GitHub Pages), copy and paste the article text instead.
+              </span>
+            </div>
           </div>
         </TabsContent>
         
