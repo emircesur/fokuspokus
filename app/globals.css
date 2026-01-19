@@ -1,0 +1,429 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Shadcn/UI default styles, overlaid with user's existing values where they conflict,
+     and new Shadcn/UI values added. */
+  --background: oklch(0.98 0 0); /* User's value */
+  --foreground: oklch(0.15 0 0); /* User's value */
+  --card: oklch(1 0 0); /* User's value */
+  --card-foreground: oklch(0.15 0 0); /* User's value */
+  --popover: oklch(1 0 0); /* User's value */
+  --popover-foreground: oklch(0.15 0 0); /* User's value */
+  --primary: oklch(0.55 0.22 25); /* User's value */
+  --primary-foreground: oklch(1 0 0); /* User's value */
+  --secondary: oklch(0.95 0 0); /* User's value */
+  --secondary-foreground: oklch(0.15 0 0); /* User's value */
+  --muted: oklch(0.93 0 0); /* User's value */
+  --muted-foreground: oklch(0.45 0 0); /* User's value */
+  --accent: oklch(0.55 0.22 25); /* User's value */
+  --accent-foreground: oklch(1 0 0); /* User's value */
+  --destructive: oklch(0.55 0.22 25); /* User's value */
+  --destructive-foreground: oklch(1 0 0); /* User's value */
+  --border: oklch(0.88 0 0); /* User's value */
+  --input: oklch(0.88 0 0); /* User's value */
+  --ring: oklch(0.55 0.22 25); /* User's value */
+  --radius: 0.5rem; /* User's value */
+
+  /* New Shadcn/UI chart colors */
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+
+  /* New Shadcn/UI sidebar colors */
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+
+  /* Reading specific tokens (User's original values) */
+  --reading-surface: oklch(0.98 0.005 90);
+  --reading-text: oklch(0.2 0 0);
+  --bionic-bold: oklch(0.1 0 0);
+  --bionic-light: oklch(0.5 0 0);
+  --bionic-accent: oklch(0.55 0.22 25);
+
+  /* Colorblind safe colors (User's original values) */
+  --cb-blue: oklch(0.55 0.15 250);
+  --cb-orange: oklch(0.7 0.15 60);
+  --cb-green: oklch(0.6 0.15 145);
+  --cb-yellow: oklch(0.85 0.15 90);
+}
+
+.dark {
+  /* Shadcn/UI default dark styles, overlaid with user's existing values where they conflict,
+     and new Shadcn/UI values added. */
+  --background: oklch(0.12 0 0); /* User's value */
+  --foreground: oklch(0.93 0 0); /* User's value */
+  --card: oklch(0.16 0 0); /* User's value */
+  --card-foreground: oklch(0.93 0 0); /* User's value */
+  --popover: oklch(0.16 0 0); /* User's value */
+  --popover-foreground: oklch(0.93 0 0); /* User's value */
+  --primary: oklch(0.65 0.22 25); /* User's value */
+  --primary-foreground: oklch(0.1 0 0); /* User's value */
+  --secondary: oklch(0.22 0 0); /* User's value */
+  --secondary-foreground: oklch(0.93 0 0); /* User's value */
+  --muted: oklch(0.22 0 0); /* User's value */
+  --muted-foreground: oklch(0.65 0 0); /* User's value */
+  --accent: oklch(0.65 0.22 25); /* User's value */
+  --accent-foreground: oklch(0.1 0 0); /* User's value */
+  --destructive: oklch(0.65 0.22 25); /* User's value */
+  --destructive-foreground: oklch(0.1 0 0); /* User's value */
+  --border: oklch(0.28 0 0); /* User's value */
+  --input: oklch(0.28 0 0); /* User's value */
+  --ring: oklch(0.65 0.22 25); /* User's value */
+
+  /* New Shadcn/UI dark chart colors */
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+
+  /* New Shadcn/UI dark sidebar colors */
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+  
+  /* Reading specific tokens - dark mode (User's original values) */
+  --reading-surface: oklch(0.14 0 0);
+  --reading-text: oklch(0.88 0.005 90);
+  --bionic-bold: oklch(0.95 0 0);
+  --bionic-light: oklch(0.55 0 0);
+  --bionic-accent: oklch(0.65 0.22 25);
+}
+
+/* Sepia theme for reading (User's original values - kept as-is) */
+.sepia {
+  --background: oklch(0.95 0.02 80);
+  --foreground: oklch(0.25 0.02 50);
+  --card: oklch(0.93 0.025 75);
+  --card-foreground: oklch(0.25 0.02 50);
+  --reading-surface: oklch(0.93 0.025 75);
+  --reading-text: oklch(0.25 0.02 50);
+  --bionic-bold: oklch(0.2 0.02 50);
+  --bionic-light: oklch(0.5 0.015 60);
+}
+
+/* High contrast theme (User's original values - kept as-is) */
+.high-contrast {
+  --background: oklch(0 0 0);
+  --foreground: oklch(1 0 0);
+  --card: oklch(0 0 0);
+  --card-foreground: oklch(1 0 0);
+  --primary: oklch(1 0.2 90);
+  --reading-surface: oklch(0 0 0);
+  --reading-text: oklch(1 0 0);
+  --bionic-bold: oklch(1 0.2 90);
+  --bionic-light: oklch(0.7 0 0);
+}
+
+/* Colorblind modes - use !important to ensure override */
+.colorblind-protanopia,
+.colorblind-protanopia.dark,
+.colorblind-protanopia.sepia,
+.colorblind-protanopia.high-contrast {
+  --primary: oklch(0.55 0.15 250) !important;
+  --accent: oklch(0.55 0.15 250) !important;
+  --bionic-accent: oklch(0.55 0.15 250) !important;
+  --ring: oklch(0.55 0.15 250) !important;
+  --destructive: oklch(0.7 0.15 60) !important;
+}
+
+.colorblind-deuteranopia,
+.colorblind-deuteranopia.dark,
+.colorblind-deuteranopia.sepia,
+.colorblind-deuteranopia.high-contrast {
+  --primary: oklch(0.55 0.15 250) !important;
+  --accent: oklch(0.55 0.15 250) !important;
+  --bionic-accent: oklch(0.55 0.15 250) !important;
+  --ring: oklch(0.55 0.15 250) !important;
+  --destructive: oklch(0.7 0.15 60) !important;
+}
+
+.colorblind-tritanopia,
+.colorblind-tritanopia.dark,
+.colorblind-tritanopia.sepia,
+.colorblind-tritanopia.high-contrast {
+  --primary: oklch(0.65 0.18 25) !important;
+  --accent: oklch(0.65 0.18 25) !important;
+  --bionic-accent: oklch(0.65 0.18 25) !important;
+  --ring: oklch(0.65 0.18 25) !important;
+  --destructive: oklch(0.55 0.15 250) !important;
+}
+
+@theme inline {
+  /* User's original font variables */
+  --font-sans: var(--reader-font, 'Geist'), 'Geist Fallback', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  --font-dyslexic: 'OpenDyslexic', 'Comic Sans MS', cursive;
+  --font-hyperlegible: 'Atkinson Hyperlegible', 'Arial', sans-serif;
+
+  /* User's original color mappings (kept) */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* New Shadcn/UI chart color mappings */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* User's original radius variables (kept) */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* New Shadcn/UI sidebar color mappings */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Font face declarations for accessibility fonts (User's original values - kept as-is) */
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/woff/OpenDyslexic-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/woff/OpenDyslexic-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  src: url('https://fonts.gstatic.com/s/atkinsonhyperlegible/v11/9Bt23C1KxNDXMspQ1lPyU89-1h6ONRlW45G056IkXw.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  src: url('https://fonts.gstatic.com/s/atkinsonhyperlegible/v11/9Bt73C1KxNDXMspQ1lPyU89-1h6ONRlW45GN5JIpXw.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Reader font classes (User's original values - kept as-is) */
+.font-reader-default {
+  font-family: 'Geist', system-ui, sans-serif;
+}
+
+.font-reader-dyslexic {
+  font-family: 'OpenDyslexic', 'Comic Sans MS', cursive;
+}
+
+.font-reader-hyperlegible {
+  font-family: 'Atkinson Hyperlegible', 'Arial', sans-serif;
+}
+
+.font-reader-serif {
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.font-reader-mono {
+  font-family: 'Geist Mono', monospace;
+}
+
+/* RSVP focus indicator (User's original values - kept as-is) */
+.rsvp-focus-line {
+  position: relative;
+}
+
+.rsvp-focus-line::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--primary);
+  opacity: 0.3;
+  transform: translateX(-50%);
+}
+
+/* Smooth scrolling for reading (User's original values - kept as-is) */
+.smooth-reading {
+  scroll-behavior: smooth;
+}
+
+/* Touch-friendly targets (User's original values - kept as-is) */
+@media (pointer: coarse) {
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Reduce motion for accessibility (User's original values - kept as-is) */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Irlen Color Overlays */
+.irlen-rose::before,
+.irlen-blue::before,
+.irlen-green::before,
+.irlen-yellow::before,
+.irlen-orange::before,
+.irlen-aqua::before,
+.irlen-gray::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: var(--irlen-opacity, 0.15);
+  mix-blend-mode: multiply;
+}
+
+.irlen-rose::before {
+  background: #fda4af;
+}
+
+.irlen-blue::before {
+  background: #93c5fd;
+}
+
+.irlen-green::before {
+  background: #86efac;
+}
+
+.irlen-yellow::before {
+  background: #fde047;
+}
+
+.irlen-orange::before {
+  background: #fdba74;
+}
+
+.irlen-aqua::before {
+  background: #67e8f9;
+}
+
+.irlen-gray::before {
+  background: #9ca3af;
+}
+
+/* Vertical Rhythm Lines - horizontal lines that help track reading position */
+.vertical-rhythm-lines {
+  position: relative;
+}
+
+.vertical-rhythm-lines::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent calc(var(--rhythm-line-spacing, 40px) - 1px),
+    var(--rhythm-line-color, rgba(128, 128, 128, 0.1)) calc(var(--rhythm-line-spacing, 40px) - 1px),
+    var(--rhythm-line-color, rgba(128, 128, 128, 0.1)) var(--rhythm-line-spacing, 40px)
+  );
+  z-index: 1;
+}
+
+/* Focus Mask / Reading Ruler */
+.focus-mask-container {
+  position: relative;
+}
+
+.focus-mask-top,
+.focus-mask-bottom {
+  position: fixed;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.85);
+  pointer-events: none;
+  z-index: 100;
+}
+
+.focus-mask-top {
+  top: 0;
+}
+
+.focus-mask-bottom {
+  bottom: 0;
+}
+
+/* Homophone indicator styling */
+.homophone-indicator {
+  text-decoration: underline !important;
+  text-decoration-style: dotted !important;
+  text-decoration-color: var(--primary) !important;
+  text-underline-offset: 4px;
+  cursor: help;
+  position: relative;
+  background-color: rgba(var(--primary), 0.05);
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+.homophone-indicator::after {
+  content: '*';
+  color: var(--primary);
+  font-size: 0.7em;
+  vertical-align: super;
+  margin-left: 1px;
+}
