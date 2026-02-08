@@ -50,7 +50,7 @@ Designed for Dyslexia, ADHD, Scotopic Sensitivity, and Visual Impairments.
 
 ## 🛠️ Installation & Usage
 
-**fokuspokus** is a Progressive Web App. You do not need an App Store. 
+**fokuspokus** is a Progressive Web App. You do not need an App Store OR MOBILE DEVICE. 
 This app is configured for static export and works on GitHub Pages. DOWNLOAD ZIP FOR SERVER /NONSTATIC DEPLOYMENT.
 
 This app uses `output: 'export'` in `next.config.mjs` for static site generation. This means:
@@ -72,4 +72,4 @@ We welcome contributions, especially from developers with lived experience in ne
 
 
 **License**
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the GPL3 License. See `LICENSE` for more information.
