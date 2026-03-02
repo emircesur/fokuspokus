@@ -1,11 +1,13 @@
 # fokuspokus
 fokuspokus is a speed and focus based reading app with Bionic-style &amp; RSVP modes , that has deep accessibility tools for **Dyslexia &amp; ADHD.** Features Irlen overlays, syllable coding, and color-safe palettes in offline-ready PWA-base for any device
 
+**[Live Demo](https://emircesur.github.io/fokuspokus/)**
 > **Reading for Every Mind.**
 
 **fokuspokus** is a Progressive Web App (PWA) designed to dismantle the barriers between text and cognition. In an age of information overload, standard typography fails millions of readers—whether due to neurodivergence, visual impairments, or simply the need for speed.
 
 This project goes beyond "dark mode." We combine scientifically-inspired speed-reading methodologies (Fixation Highlighting, RSVP) with deep accessibility customization (Irlen overlays, phoneme decoding) to create a reading environment that adapts to *your* brain, not the other way around.
+
 
 ---
 
